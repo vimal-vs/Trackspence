@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { useBudgets, UNCATEGORIZED_BUDGET_ID } from "../../contexts/BudgetsContext"
 
 export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) {
+  
   const descriptionRef = useRef()
   const amountRef = useRef()
   const budgetIdRef = useRef()
@@ -42,20 +43,22 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
                     <input name="AmountInput" ref={amountRef} type="number" className="border p-1" required/>
                   </div>
                 </div>
-                <label htmlFor="countries">Select an option</label>
-                <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                defaultValue={defaultBudgetId} ref={budgetIdRef}>
-                  <option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
-                  {budgets.map(budget => (
-                    <option key={budget.id} value={budget.id}>
-                      {budget.name}
-                    </option>
-                  ))}
-                </select>
+                <div className="mx-4">
+                  <label htmlFor="countries">Select an option</label>
+                  <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm w-full block p-2 my-2"
+                  defaultValue={defaultBudgetId} ref={budgetIdRef}>
+                    <option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
+                    {budgets.map(budget => (
+                      <option key={budget.id} value={budget.id}>
+                        {budget.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                <div className="flex items-center justify-end p-3 mt-4 border-t border-solid border-slate-200 rounded-b">
                   <button
-                    className="bg-blue-button text-white font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="border-2 font-semibold border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="submit">
                     Add
                   </button>

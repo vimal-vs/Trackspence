@@ -1,5 +1,5 @@
 import { amountFormater } from "../../utils/amountFormater"
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "../../components/ui/progress";
 
 const cardBg = (amount, maxAmount) => {
     if(amount>maxAmount){
