@@ -7,11 +7,6 @@ import { BudgetsProvider } from "../contexts/BudgetsContext";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Exprense Tracker',
-  description: 'Save and check your expenses.',
-}
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
