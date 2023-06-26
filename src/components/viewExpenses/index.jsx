@@ -34,10 +34,10 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                 </div>
                 {/*body*/}
                   {expenses.map(expense => (
-                    <div className="flex justify-between p-2 border-b rounded-md py-4">
+                    <div className="flex justify-between p-2 border-b rounded-md py-4" key={expense.id}>
                       <span key={expense.id}>{expense.description}</span>
-                      <span>{amountFormater.format(expense.amount)}</span>
-                      <button onClick={() => deleteExpense(expense)} className="hover:text-red-400 hover:font-semibold">&times;</button>
+                      <span key={expense.id}>{amountFormater.format(expense.amount)}</span>
+                      <button key={expense.id} onClick={() => deleteExpense(expense)} className="hover:text-red-400 hover:font-semibold">&times;</button>
                     </div>
                   ))}
                 {/*footer*/}

@@ -4,13 +4,15 @@ import Navbar from "../components/navBar";
 import BudgetCard from "../components/budgetCard";
 import UncategorizedBudgetCard from "../components/uncategorizedBudgetCard";
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../contexts/BudgetsContext";
-import { useState } from "react"
+import { useState } from "react";
 import AddBudgetModal from "../components/addBudget";
 import AddExpenseModal from "../components/addExpense";
 import TotalBudgetCard from "../components/totalBudgetCard";
 import ViewExpensesModal from "../components/viewExpenses";
 
+
 export default function Home() {
+
 
   const [showAddBudgetModel,setShowAddBudgetModel] = useState(false);
   const [showAddExpenseModel,setShowAddExpenseModel] = useState(false);
@@ -26,6 +28,7 @@ export default function Home() {
 
   return (
     <div>
+      <title>Trackspense</title>
       <Navbar />
       <div>
           <div className="flex justify-between p-4 my-6">

@@ -1,7 +1,7 @@
 import { Arima } from 'next/font/google';
 import ModeToggle from '../theme';
 
-const arima = Arima({ subsets: ['latin'], weight: '400' })
+const arima = Arima({ subsets: ['latin'], weight: '400' });
 
 export default function Navbar() {
   return (
