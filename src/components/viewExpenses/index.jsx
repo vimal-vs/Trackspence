@@ -2,10 +2,9 @@ import { amountFormater } from "../../utils/amountFormater";
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../../contexts/BudgetsContext"
 
 export default function ViewExpensesModal({ budgetId, handleClose }) {
-
   const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } = useBudgets();
   const budget = UNCATEGORIZED_BUDGET_ID === budgetId ? { name: "Uncategorized", id:UNCATEGORIZED_BUDGET_ID } :
-    budgets.find(bud => bud.id === budgetId );
+    budgets?.find(bud => bud.id === budgetId );
   const expenses = getBudgetExpenses(budgetId);
   return (
     <>
