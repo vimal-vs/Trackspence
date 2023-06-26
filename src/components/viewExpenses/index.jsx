@@ -3,8 +3,8 @@ import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../../contexts/BudgetsConte
 
 export default function ViewExpensesModal({ budgetId, handleClose }) {
   const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } = useBudgets();
-  const budget = UNCATEGORIZED_BUDGET_ID === budgetId ? { name: "Uncategorized", id:UNCATEGORIZED_BUDGET_ID } :
-    budgets?.find(bud => bud.id === budgetId );
+  const budget = async() => UNCATEGORIZED_BUDGET_ID === budgetId ? { name: "Uncategorized", id:UNCATEGORIZED_BUDGET_ID } :
+    await budgets.find(bud => bud.id === budgetId );
   const expenses = getBudgetExpenses(budgetId);
   return (
     <>

@@ -13,7 +13,6 @@ import ViewExpensesModal from "../components/viewExpenses";
 
 export default function Home() {
 
-
   const [showAddBudgetModel,setShowAddBudgetModel] = useState(false);
   const [showAddExpenseModel,setShowAddExpenseModel] = useState(false);
   const [addExpenseModalBudgetId,setAddExpenseModalBudgetId] = useState(false);
@@ -25,6 +24,7 @@ export default function Home() {
   }
 
   const { budgets, getBudgetExpenses }  = useBudgets();
+
   return (
     <div>
       <title>Trackspense</title>
