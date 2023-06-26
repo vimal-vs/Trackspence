@@ -2,9 +2,10 @@ import { amountFormater } from "../../utils/amountFormater";
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../../contexts/BudgetsContext"
 
 export default function ViewExpensesModal({ budgetId, handleClose }) {
+  setTimeout(() => {},2000);
   const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } = useBudgets();
-  const budget = async() => UNCATEGORIZED_BUDGET_ID === budgetId ? { name: "Uncategorized", id:UNCATEGORIZED_BUDGET_ID } :
-    await budgets.find(bud => bud.id === budgetId );
+  const budget =  UNCATEGORIZED_BUDGET_ID === budgetId ? { name: "Uncategorized", id:UNCATEGORIZED_BUDGET_ID } :
+     budgets?.find(bud => bud.id === budgetId );
   const expenses = getBudgetExpenses(budgetId);
   return (
     <>
@@ -33,8 +34,8 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                 {/*body*/}
                   {expenses?.map(expense => (
                     <div className="flex justify-between p-2 border-b rounded-md py-4" key={expense.id}>
-                      <span key={expense.id}>{expense.description}</span>
-                      <span key={expense.id}>{amountFormater.format(expense.amount)}</span>
+                      <span key={expense.description}>{expense.description}</span>
+                      <span key={expense.amount}>{amountFormater.format(expense.amount)}</span>
                       <button key={expense.id} onClick={() => deleteExpense(expense)} className="hover:text-red-400 hover:font-semibold">&times;</button>
                     </div>
                   ))}
