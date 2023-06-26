@@ -25,7 +25,6 @@ export default function Home() {
   }
 
   const { budgets, getBudgetExpenses }  = useBudgets();
-
   return (
     <div>
       <title>Trackspense</title>
@@ -40,7 +39,7 @@ export default function Home() {
           </div>
           <AddBudgetModal show={showAddBudgetModel} handleClose={() => setShowAddBudgetModel(false)}/>
           <AddExpenseModal show={showAddExpenseModel} handleClose={() => setShowAddExpenseModel(false)} defaultBudgetId={addExpenseModalBudgetId} />
-          {budgets.map(budget => {
+          {budgets?.map(budget => {
               const amount = getBudgetExpenses(budget.id).reduce((total, expense) => total + expense.amount,0);
               return (
                 <BudgetCard

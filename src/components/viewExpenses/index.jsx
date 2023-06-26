@@ -7,7 +7,6 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
   const budget = UNCATEGORIZED_BUDGET_ID === budgetId ? { name: "Uncategorized", id:UNCATEGORIZED_BUDGET_ID } :
     budgets.find(bud => bud.id === budgetId );
   const expenses = getBudgetExpenses(budgetId);
-
   return (
     <>
       { budgetId ? (
@@ -33,7 +32,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                     <button className="text-slate-300 text-2xl font-semibold outline-none focus:outline-none" onClick={handleClose}>&times;</button>
                 </div>
                 {/*body*/}
-                  {expenses.map(expense => (
+                  {expenses?.map(expense => (
                     <div className="flex justify-between p-2 border-b rounded-md py-4" key={expense.id}>
                       <span key={expense.id}>{expense.description}</span>
                       <span key={expense.id}>{amountFormater.format(expense.amount)}</span>
